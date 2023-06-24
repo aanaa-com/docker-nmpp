@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  mysql:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "${PASSWORD}"
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    environment:
+        PMA_HOST: mysql
+        PMA_VERBOSE: "MySQL Docker Container"
+        PMA_PORT: 3306
+        PMA_USER: "root"
+        PMA_PASSWORD: "${PASSWORD}"
+        UPLOAD_LIMIT: "128M"
+    ports:
+      - 8080:80

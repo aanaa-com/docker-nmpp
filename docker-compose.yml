@@ -5,6 +5,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: "${PASSWORD}"
+    ports:
+      - 3306:3306
   phpmyadmin:
     image: phpmyadmin:latest
     restart: always
